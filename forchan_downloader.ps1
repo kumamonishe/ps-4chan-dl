@@ -1,9 +1,17 @@
 ﻿"4chan downloader`n"
 
 $threadUri = Get-Clipboard -Format Text;
-if (!($threadUri -match '^http:\/\/boards.4chan.org\/.*')) {
+
+if (!($threadUri -match '^http:\/\/boards.4chan.org\/.*')) 
+{
 $threadUri = Read-Host -Prompt "Enter thread URL with http";
+if (!($threadUri -match '^http:\/\/boards.4chan.org\/.*'))
+{
+"This is not 4chan url. Exiting."
+Exit(1);
 }
+}
+
 $Response = Invoke-WebRequest -Uri $threadUri;
 
 $title = $($Response.ParsedHtml.getElementsByTagName('title')).innertext;
