@@ -20,10 +20,10 @@ else
 $dest
 $threadUri = Get-Clipboard -Format Text;
 
-if (!($threadUri -match '^http:\/\/boards.4chan.org\/.*')) 
+if (!($threadUri -match '^http:\/\/boards.4channel.org\/.*')) 
 {
     $threadUri = Read-Host -Prompt "Enter thread URL with http";
-    if (!($threadUri -match '^http:\/\/boards.4chan.org\/.*'))
+    if (!($threadUri -match '^http:\/\/boards.4channel.org\/.*'))
         {
             "This is not 4chan url: $threadUri. `nExiting."
             Exit(1);
